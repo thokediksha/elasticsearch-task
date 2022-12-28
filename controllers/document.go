@@ -27,8 +27,9 @@ var (
 func CreateDocumentsEndpoints(c *gin.Context) {
 	// Parse request
 	var docs []models.DocumentRequest
-	if err := c.BindJSON(&docs); err != nil {
+	if err := c.ShouldBindJSON(&docs); err != nil {
 		errorResponse(c, http.StatusBadRequest, "Malformed request body")
+		fmt.Println(err)
 		return
 	}
 	// Insert documents in bulk
