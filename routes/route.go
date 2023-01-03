@@ -28,10 +28,10 @@ func InitialzeRoutes() *gin.Engine {
 		c.Next()
 	})
 
-	e := r.Group("/api/es")
+	// e := r.Group("/api/es")
 
-	e.POST("/documents", controllers.CreateDocumentsEndpoints)
-	e.GET("/search", controllers.SearchEndpoint)
+	r.POST("/documents", controllers.CreateDocumentsEndpoints)
+	r.GET("/search", controllers.SearchEndpoint)
 
 	return r
 }
